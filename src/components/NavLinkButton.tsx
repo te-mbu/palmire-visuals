@@ -7,7 +7,8 @@ interface NavLinkButtonProps {
   href: string;
   label: string;
   isHidden: boolean;
-  setIsOpen: any;
+  setIsOpen: (open: boolean) => void;
+  setShowProfile: (show: boolean) => void;
 }
 
 const NavLink: React.FC<NavLinkButtonProps> = ({
@@ -15,15 +16,21 @@ const NavLink: React.FC<NavLinkButtonProps> = ({
   label,
   isHidden,
   setIsOpen,
+  setShowProfile,
 }) => {
   const pathname = usePathname();
   const isActive = pathname === href;
+
+  const handleClick = () => {
+    setIsOpen(false);
+    if (label === "Palmire MBU" && isActive) setShowProfile(true);
+  };
 
   return (
     <li className={`${isHidden ? "hidden sm:block" : ""}`}>
       <Link
         href={href}
-        onClick={() => setIsOpen(false)}
+        onClick={handleClick}
         passHref
         className={`${
           isActive ? "text-grey-50" : "text-light"

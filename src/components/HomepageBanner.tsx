@@ -1,10 +1,17 @@
 import React from "react";
 
-const HomepageBanner = () => {
+interface ProfileProps {
+  setShowProfile: (show: boolean) => void;
+}
+
+const HomepageBanner: React.FC<ProfileProps> = ({ setShowProfile }) => {
   return (
     <div className="w-full flex flex-col items-center">
       <p className="text-grey-50 font-[500] leading-tight text-vw">
-        PALMIRE MBU, VIDEOGRAPHER & EDITOR
+        <button onClick={() => setShowProfile(true)} className="text-light">
+          PALMIRE MBU
+        </button>
+        , VIDEOGRAPHER & EDITOR
       </p>
       <p className="text-grey-50 font-[500] text-vw">
         CURRENTLY BASED IN PARIS (FRANCE)
