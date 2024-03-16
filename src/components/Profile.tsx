@@ -41,12 +41,12 @@ const Profile: React.FC<ProfileProps> = ({ setShowProfile }) => {
       ref={modalRef}
     >
       <button
-        className="relative text-light text-start w-full pl-1 border-r border-r-light"
+        className="relative text-dark bg-light text-start w-full pl-1"
         onClick={() => setShowProfile(false)}
       >
         Close
       </button>
-      <div className="relative aspect-auto w-full h-full border-r border-r-light">
+      <div className="relative aspect-auto w-full h-full sm:border-r sm:border-r-light">
         <p className="absolute p-4 w-[50%] sm:w-full sm:max-w-[70%] text-light font-semibold">
           Following his Photography MFA at EFTI, Madrid, he moved to Paris
           developing his career for several years linking up with London, and
