@@ -1,22 +1,28 @@
 <!doctype html>
 <html>
   <head>
-    <title>Votre Site - Admin</title>
+    <meta charset="utf-8" />
+    <title>Content Manager</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.netlify.com/cms/2.10.76/netlify-cms.css"
+    />
   </head>
   <body>
-    <!-- Insertion du widget CMS -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <div id="nc-root"></div>
     <script>
       if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", (user) => {
+        window.netlifyIdentity.on("init", function (user) {
           if (!user) {
-            window.netlifyIdentity.on("login", () => {
+            window.netlifyIdentity.on("login", function () {
               document.location.href = "/admin/";
             });
           }
         });
       }
     </script>
-    <script src="https://cdn.netlify.com/cms/2.10.1/netlify-cms.js"></script>
+    <script src="https://cdn.netlify.com/cms/2.10.76/netlify-cms.js"></script>
   </body>
 </html>
