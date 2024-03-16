@@ -1,6 +1,7 @@
 import React from "react";
 import Work from "@/components/Work";
 import videosData from "../../public/data/videosData"; // Make sure the path matches where your JSON file is
+import "./globals.css";
 
 interface Video {
   title: string;

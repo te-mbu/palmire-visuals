@@ -13,9 +13,9 @@ const NavBar: React.FC = () => {
   const isHomePage = pathname === "/";
 
   return (
-    <div className="w-full">
+    <div className="w-full z-50">
       {isHomePage && <HomepageBanner setShowProfile={setShowProfile} />}
-      <div className="sm:flex sm:justify-between">
+      <div className="w-full sm:flex sm:justify-between ">
         {/* Hamburger icon for smaller screens */}
         <div className="sm:hidden">
           <button

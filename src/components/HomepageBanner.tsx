@@ -6,7 +6,7 @@ interface ProfileProps {
 
 const HomepageBanner: React.FC<ProfileProps> = ({ setShowProfile }) => {
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center z-30">
       <p className="text-grey-50 font-[500] leading-tight text-vw">
         <button onClick={() => setShowProfile(true)} className="text-light">
           PALMIRE MBU

@@ -5,21 +5,3 @@
 body {
   @apply bg-dark;
 }
-
-@font-face {
-  font-family: "groteskFont";
-  src:
-    url("/fonts/MonumentGrotesk-Regular.woff2") format("woff2"),
-    url("/fonts/MonumentGrotesk-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "groteskFont";
-  src:
-    url("/fonts/MonumentGrotesk-Bold.woff2") format("woff2"),
-    url("/fonts/MonumentGrotesk-Bold.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-}

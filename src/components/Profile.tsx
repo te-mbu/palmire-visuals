@@ -37,8 +37,7 @@ const Profile: React.FC<ProfileProps> = ({ setShowProfile }) => {
       animate="visible"
       variants={variants}
       transition={{ duration: 0.1 }}
-      className="fixed top-0 left-0 w-full md:max-w-xl h-full bg-dark "
-      style={{ zIndex: 800 }}
+      className="fixed top-0 left-0 w-full md:max-w-xl h-full bg-dark z-50"
       ref={modalRef}
     >
       <button
@@ -47,8 +46,8 @@ const Profile: React.FC<ProfileProps> = ({ setShowProfile }) => {
       >
         Close
       </button>
-      <div className="relative aspect-auto w-full h-full border-8 border-light">
-        <p className="absolute z-40 p-4 w-[50%] sm:w-full sm:max-w-[70%] text-light font-semibold">
+      <div className="relative aspect-auto w-full h-full border-r border-r-light">
+        <p className="absolute p-4 w-[50%] sm:w-full sm:max-w-[70%] text-light font-semibold">
           Following his Photography MFA at EFTI, Madrid, he moved to Paris
           developing his career for several years linking up with London, and
           later on, Amsterdam, where he studied at Gerrit Rietveld Academie.

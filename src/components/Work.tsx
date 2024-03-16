@@ -39,7 +39,7 @@ const Work: React.FC<WorkProps> = ({ title, thumbnail, description, src }) => {
   return (
     <>
       <div
-        className="relative bg-light hover:bg-[#a3a3a3] border-2 hover:border-yellow-300 border-dark h-96 flex justify-center items-center cursor-pointer z-10 group" // Assurez-vous que cette classe a une position relative et un z-index approprié
+        className="relative bg-light hover:bg-[#a3a3a3] border-2 hover:border-yellow-300 border-dark h-96 flex justify-center items-center cursor-pointer z-10 group"
         onMouseMove={handleMouseMove}
         onClick={() => setShowVideo(true)}
       >
@@ -60,10 +60,10 @@ const Work: React.FC<WorkProps> = ({ title, thumbnail, description, src }) => {
         </div>
       </div>
       {showVideo && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-40">
           <div className=" bg-light">
             <button
-              className="pl-1 text-dark z-50"
+              className="pl-1 text-dark z-40"
               onClick={() => setShowVideo(false)}
             >
               Close
