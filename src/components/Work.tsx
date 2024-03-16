@@ -48,7 +48,7 @@ const Work: React.FC<WorkProps> = ({ title, thumbnail, description, src }) => {
             {title}
           </p>
           <p className="absolute left-0 bottom-0 text-sm font-semibold text-yellow-300 z-40 hidden group-hover:block">
-            "{description}"
+            &quot;{description}&quot;
           </p>
         </div>
         <div className="relative aspect-square w-2/3 h-2/3 bg-black z-20">

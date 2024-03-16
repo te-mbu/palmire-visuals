@@ -82,7 +82,7 @@ const Carousel: React.FC<CarouselProps> = ({
                 {video.title}
               </p>
               <p className=" pl-1 text-start overflow-hidden break-words">
-                "{video.description}"
+                &quot;{video.description}&quot;
               </p>
             </div>
           </div>
