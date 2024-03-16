@@ -8,7 +8,10 @@ const HomepageBanner: React.FC<ProfileProps> = ({ setShowProfile }) => {
   return (
     <div className="w-full flex flex-col items-center z-30">
       <p className="text-grey-50 font-[500] leading-tight text-vw">
-        <button onClick={() => setShowProfile(true)} className="text-light">
+        <button
+          onClick={() => setShowProfile(true)}
+          className="text-light sm:hover:text-yellow-300"
+        >
           PALMIRE MBU
         </button>
         , VIDEOGRAPHER & EDITOR

@@ -13,7 +13,7 @@ interface VideoData {
 
 const videosData: VideoData[] = [
   {
-    title: "Ousmane Dieng",
+    title: "Ousmane lalala lalaal alalallalalal alalalla",
     thumbnail: "/default.jpeg",
     description: "Description de la video Ousmane",
     src: "/videos/video-2.mp4",

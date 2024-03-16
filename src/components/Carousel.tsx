@@ -22,7 +22,7 @@ const Carousel: React.FC<CarouselProps> = ({ selectedVideos }) => {
 
   const variants = {
     hidden: { scaleY: 0 },
-    visible: { scaleY: 1, transition: { duration: 0.3, ease: "easeOut" } },
+    visible: { scaleY: 1, transition: { duration: 0.1, ease: "easeOut" } },
   };
 
   const handleClick = () => {};
@@ -33,7 +33,7 @@ const Carousel: React.FC<CarouselProps> = ({ selectedVideos }) => {
       animate="visible"
       variants={variants}
       style={{ transformOrigin: "top" }}
-      className="overflow-hidden"
+      className="overflow-hidden border -b border-b-black"
     >
       <div
         ref={scrollContainerRef}
@@ -49,17 +49,26 @@ const Carousel: React.FC<CarouselProps> = ({ selectedVideos }) => {
         onClick={handleClick}
       >
         {selectedVideos.map((video, index) => (
-          <div
-            key={index}
-            className="relative aspect-square w-10/12 sm:w-[400px] h-auto flex-none m-2"
-          >
-            <Image
-              src={video.thumbnail}
-              alt={video.title}
-              fill
-              className="object-contain"
-            />
-            <p>{video.title}</p>
+          <div className="flex flex-col w-full items-center bg-light py-2">
+            <div
+              key={index}
+              className="relative aspect-square w-10/12 sm:w-[400px] h-auto flex-none mb-0"
+            >
+              <Image
+                src={video.thumbnail}
+                alt={video.title}
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="w-10/12 sm:w-[400px] flex flex-col bg-light mx-2 shadow-md">
+              <p className=" pl-1 text-start overflow-hidden break-words">
+                {video.title}
+              </p>
+              <p className=" pl-1 text-start overflow-hidden break-words">
+                "{video.description}"
+              </p>
+            </div>
           </div>
         ))}
       </div>

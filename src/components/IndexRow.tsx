@@ -40,11 +40,11 @@ const IndexRow: React.FC<IndexRowProps> = ({
 
   return (
     <div className="flex flex-col gap-0 w-full">
-      <div className="w-full  flex justify-between bg-light border-b border-b-dark pl-1 group">
+      <div className="w-full  flex justify-between bg-light border-b border-b-dark pl-1">
         <p>{title}</p>
         <div className="w-[30%] flex justify-between px-[1%]">
           <p>{year}</p>
-          <p className="group-hover:scale-105" onClick={onClick}>
+          <p className="cursor-pointer" onClick={onClick}>
             {isOpen ? "-" : "+"}
           </p>
         </div>
