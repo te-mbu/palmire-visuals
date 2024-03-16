@@ -5,16 +5,21 @@ import HomepageBanner from "./HomepageBanner";
 import { usePathname } from "next/navigation";
 import NavLinkButton from "./NavLinkButton";
 import Profile from "./Profile";
+import IntroText from "./IntroText";
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [introDone, setIntroDone] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === "/";
 
   return (
     <div className="w-full z-50">
-      {isHomePage && <HomepageBanner setShowProfile={setShowProfile} />}
+      <div className="relative">
+        {!introDone && <IntroText setIntroDone={setIntroDone} />}
+        {isHomePage && <HomepageBanner setShowProfile={setShowProfile} />}
+      </div>
       <div className="w-full sm:flex sm:justify-between ">
         {/* Hamburger icon for smaller screens */}
         <div className="sm:hidden">

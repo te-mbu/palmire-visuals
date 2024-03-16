@@ -27,7 +27,7 @@ const NavLink: React.FC<NavLinkButtonProps> = ({
   };
 
   return (
-    <li className={`${isHidden ? "hidden sm:block" : ""}`}>
+    <li className={`${isHidden ? "hidden sm:flex" : ""} flex py-1`}>
       <Link
         href={href}
         onClick={handleClick}
