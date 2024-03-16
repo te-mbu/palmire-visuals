@@ -15,9 +15,15 @@ interface Video {
 
 interface CarouselProps {
   selectedVideos: Video[];
+  setShowVideo: (show: boolean) => void;
+  setSelectedVideoSrc: (src: string) => void;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ selectedVideos }) => {
+const Carousel: React.FC<CarouselProps> = ({
+  selectedVideos,
+  setShowVideo,
+  setSelectedVideoSrc,
+}) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const variants = {
@@ -25,7 +31,10 @@ const Carousel: React.FC<CarouselProps> = ({ selectedVideos }) => {
     visible: { scaleY: 1, transition: { duration: 0.1, ease: "easeOut" } },
   };
 
-  const handleClick = () => {};
+  const handleClick = (src: string) => {
+    setShowVideo(true);
+    setSelectedVideoSrc(src);
+  };
 
   return (
     <motion.div
@@ -46,13 +55,13 @@ const Carousel: React.FC<CarouselProps> = ({ selectedVideos }) => {
           }
         }}
         className="flex overflow-x-auto scrollbar-hide"
-        onClick={handleClick}
       >
         {selectedVideos.map((video, index) => (
           <div className="flex flex-col w-full items-center bg-light py-2">
             <div
               key={index}
               className="relative aspect-square w-10/12 sm:w-[400px] h-auto flex-none mb-0"
+              onClick={() => handleClick(video.src)}
             >
               <Image
                 src={video.thumbnail}
