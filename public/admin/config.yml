@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: netlify-connect # ou la branche que vous utilisez
+
+media_folder: "public/uploads" # Chemin où les médias seront stockés
+public_folder: "/uploads" # Chemin public pour accéder aux médias
+
+collections:
+  - name: "video" # Nom de votre collection de vidéos
+    label: "Vidéo"
+    folder: "content/videos" # Dossier où vos fichiers vidéo seront stockés
+    create: true # Permet de créer de nouveaux posts
+    fields: # Les champs pour chaque vidéo
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Video File", name: "src", widget: "file" }
+      - {
+          label: "Index",
+          name: "index",
+          widget: "object",
+          fields:
+            [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Year", name: "year", widget: "string" },
+            ],
+        }
