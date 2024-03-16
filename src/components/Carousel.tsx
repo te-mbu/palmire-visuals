@@ -51,7 +51,7 @@ const Carousel: React.FC<CarouselProps> = ({
           const amount = (e.deltaY + e.deltaX) * scrollSpeed;
           if (scrollContainerRef.current) {
             scrollContainerRef.current.scrollLeft += amount;
-            e.preventDefault();
+            // e.preventDefault();
           }
         }}
         style={{
@@ -62,9 +62,11 @@ const Carousel: React.FC<CarouselProps> = ({
         className="flex"
       >
         {selectedVideos.map((video, index) => (
-          <div className="flex flex-col w-full items-center bg-light py-2">
+          <div
+            key={index}
+            className="flex flex-col w-full items-center bg-light py-2"
+          >
             <div
-              key={index}
               className="relative aspect-square w-10/12 sm:w-[400px] h-auto flex-none mb-0"
               onClick={() => handleClick(video.src)}
             >
