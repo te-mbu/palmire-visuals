@@ -43,12 +43,14 @@ const Work: React.FC<WorkProps> = ({ title, thumbnail, description, src }) => {
         onMouseMove={handleMouseMove}
         onClick={() => setShowVideo(true)}
       >
-        <p className=" absolute pl-1 left-0 top-[50%] text-xl font-bold text-yellow-300 z-30 hidden group-hover:block">
-          {title}
-        </p>
-        <p className="absolute left-0 bottom-0 text-sm font-semibold text-yellow-300 z-30 hidden group-hover:block">
-          "{description}"
-        </p>
+        <div className="absolute w-full h-full bg-transparent z-30">
+          <p className=" absolute pl-1 left-0 top-[50%] text-xl font-bold text-yellow-300 z-40 hidden group-hover:block">
+            {title}
+          </p>
+          <p className="absolute left-0 bottom-0 text-sm font-semibold text-yellow-300 z-40 hidden group-hover:block">
+            "{description}"
+          </p>
+        </div>
         <div className="relative aspect-square w-2/3 h-2/3 bg-black z-20">
           <Image
             alt="default"
