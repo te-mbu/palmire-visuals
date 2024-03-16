@@ -5,6 +5,10 @@ interface VideoData {
   thumbnail: string;
   description: string;
   src: string;
+  index: {
+    title: string;
+    year: string;
+  };
 }
 
 const videosData: VideoData[] = [
@@ -12,25 +16,71 @@ const videosData: VideoData[] = [
     title: "Ousmane Dieng",
     thumbnail: "/default.jpeg",
     description: "Description de la video Ousmane",
-    src: "/videos/video-1.mp4",
+    src: "/videos/video-2.mp4",
+    index: {
+      title: "G-League",
+      year: "2024",
+    },
   },
   {
     title: "El reno",
     thumbnail: "/default.jpeg",
     description: "Description de la video El Reno",
-    src: "/videos/video-2.mp4",
+    src: "/videos/video-1.mp4",
+    index: {
+      title: "El Reno High School",
+      year: "2024",
+    },
   },
   {
     title: "Ousmane Dieng",
     thumbnail: "/default.jpeg",
     description: "Description de la video Ousmane",
-    src: "/videos/video-1.mp4",
+    src: "/videos/video-2.mp4",
+    index: {
+      title: "G-League",
+      year: "2024",
+    },
+  },
+  {
+    title: "Ousmane Dieng",
+    thumbnail: "/default.jpeg",
+    description: "Description de la video Ousmane",
+    src: "/videos/video-2.mp4",
+    index: {
+      title: "G-League",
+      year: "2024",
+    },
+  },
+  {
+    title: "Ousmane Dieng",
+    thumbnail: "/default.jpeg",
+    description: "Description de la video Ousmane",
+    src: "/videos/video-2.mp4",
+    index: {
+      title: "G-League",
+      year: "2024",
+    },
+  },
+  {
+    title: "Ousmane Dieng",
+    thumbnail: "/default.jpeg",
+    description: "Description de la video Ousmane",
+    src: "/videos/video-2.mp4",
+    index: {
+      title: "G-League",
+      year: "2024",
+    },
   },
   {
     title: "El reno",
     thumbnail: "/default.jpeg",
     description: "Description de la video El Reno",
-    src: "/videos/video-2.mp4",
+    src: "/videos/video-1.mp4",
+    index: {
+      title: "El Reno High School",
+      year: "2024",
+    },
   },
 ];
 
