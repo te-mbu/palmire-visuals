@@ -43,8 +43,8 @@ const NavBar: React.FC = () => {
               setShowProfile={setShowProfile}
             />
             <NavLinkButton
-              href="/index"
-              label="Index"
+              href="/portfolio"
+              label="Portfolio"
               isHidden={false}
               setIsOpen={setIsOpen}
               setShowProfile={setShowProfile}

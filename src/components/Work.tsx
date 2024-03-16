@@ -47,37 +47,37 @@ const Work: React.FC<WorkProps> = ({ title, thumbnail, description, src }) => {
           {title}
         </p>
         <p className="absolute left-0 bottom-0 text-sm font-semibold text-yellow-300 z-30 hidden group-hover:block">
-          {description}
+          "{description}"
         </p>
-        <div
-          className="relative aspect-square w-2/3 h-2/3 bg-black z-20" // La position relative est déjà là, le z-index de cette classe doit être inférieur à celui des <p>
-        >
+        <div className="relative aspect-square w-2/3 h-2/3 bg-black z-20">
           <Image
             alt="default"
             src={thumbnail}
             fill
             className="object-cover opacity-10 "
-            style={{ zIndex: 5 }} // Assurez-vous que le z-index est ici inférieur à celui des éléments <p>
+            style={{ zIndex: 5 }}
           />
         </div>
       </div>
       {showVideo && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
-          <div className="relative w-auto h-full max-h-[75vh] bg-light">
+          <div className=" bg-light">
             <button
               className="pl-1 text-dark z-50"
               onClick={() => setShowVideo(false)}
             >
               Close
             </button>
-            <video
-              className="object-contain h-full w-full" // Adjusted for responsive width and height
-              src={src}
-              autoPlay
-              loop
-            >
-              Your browser does not support the video tag.
-            </video>
+            <div className="relative w-auto sm:max-h-[90vh] sm:w-auto h-auto">
+              <video
+                className="object-contain w-auto h-[90vh] sm:h-full"
+                src={src}
+                autoPlay
+                loop
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
         </div>
       )}
