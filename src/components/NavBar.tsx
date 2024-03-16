@@ -17,7 +17,7 @@ const NavBar: React.FC = () => {
   return (
     <div className="w-full z-50">
       <div className="relative">
-        {!introDone && <IntroText setIntroDone={setIntroDone} />}
+        {!introDone && isHomePage && <IntroText setIntroDone={setIntroDone} />}
         {isHomePage && <HomepageBanner setShowProfile={setShowProfile} />}
       </div>
       <div className="w-full sm:flex sm:justify-between ">
