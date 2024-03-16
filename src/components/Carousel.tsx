@@ -54,7 +54,12 @@ const Carousel: React.FC<CarouselProps> = ({
             e.preventDefault();
           }
         }}
-        className="flex overflow-x-auto scrollbar-hide"
+        style={{
+          overflowX: "auto",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }} // Styles pour cacher la barre de défilement
+        className="flex"
       >
         {selectedVideos.map((video, index) => (
           <div className="flex flex-col w-full items-center bg-light py-2">
