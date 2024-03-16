@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Votre Site - Admin</title>
+  </head>
+  <body>
+    <!-- Insertion du widget CMS -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+    <script src="https://cdn.netlify.com/cms/2.10.1/netlify-cms.js"></script>
+  </body>
+</html>
