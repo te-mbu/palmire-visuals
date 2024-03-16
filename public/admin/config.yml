@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: netlify-connect # ou la branche que vous utilisez
+  branch: main # ou la branche que vous utilisez
 
 media_folder: "public/uploads" # Chemin où les médias seront stockés
 public_folder: "/uploads" # Chemin public pour accéder aux médias
