@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import videosData from "../../public/data/videosData";
 import Carousel from "./Carousel";
+import PlusMinusButton from "./PlusMinusButton";
 
 interface Video {
   title: string;
@@ -43,13 +44,11 @@ const IndexRow: React.FC<IndexRowProps> = ({
   return (
     <>
       <div className="flex flex-col gap-0 w-full">
-        <div className="w-full  flex justify-between bg-light border-b border-b-dark pl-1">
+        <div className="w-full flex justify-between bg-light border-b py-2 border-dark pl-1 sm:py-0">
           <p>{title}</p>
-          <div className="w-[30%] flex justify-between px-[1%]">
+          <div className="w-1/3 flex justify-between items-center px-1">
             <p>{year}</p>
-            <p className="cursor-pointer" onClick={onClick}>
-              {isOpen ? "-" : "+"}
-            </p>
+            <PlusMinusButton isOpen={isOpen} onClick={onClick} />
           </div>
         </div>
 

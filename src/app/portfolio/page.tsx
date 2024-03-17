@@ -32,9 +32,9 @@ const Portfolio: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-0 w-full">
-      <div className="w-full flex justify-between mt-1 bg-light border-b  border-b-dark pl-1">
+      <div className="w-full flex justify-between mt-1 bg-light border-b py-2 border-b-dark pl-1 sm:py-0">
         <p>Album</p>
-        <div className="w-[30%] flex justify-between px-[1%]">
+        <div className="w-1/3 flex justify-between items-center px-1">
           <p>Year</p>
           <p>Details</p>
         </div>
