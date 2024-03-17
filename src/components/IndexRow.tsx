@@ -44,7 +44,11 @@ const IndexRow: React.FC<IndexRowProps> = ({
   return (
     <>
       <div className="flex flex-col gap-0 w-full">
-        <div className="w-full flex justify-between bg-light border-b py-2 border-dark pl-1 sm:py-0">
+        <div
+          className={`${
+            isOpen ? "border border-b border-b-light" : "border-b border-dark"
+          } w-full flex justify-between bg-light py-3 pl-1 sm:py-0`}
+        >
           <p>{title}</p>
           <div className="w-1/3 flex justify-between items-center px-1">
             <p>{year}</p>

@@ -27,14 +27,14 @@ const NavLink: React.FC<NavLinkButtonProps> = ({
   };
 
   return (
-    <li className={`${isHidden ? "hidden" : ""} flex py-1`}>
+    <li className={`${isHidden ? "hidden" : ""} sm:flex py-1`}>
       <Link
         href={href}
         onClick={handleClick}
         passHref
         className={`${
           isActive ? "text-grey-50" : "text-light"
-        } hover:text-grey-50 sm:text-xs uppercase`}
+        } hover:text-grey-50 text-xl sm:text-xs uppercase`}
       >
         {label}
       </Link>

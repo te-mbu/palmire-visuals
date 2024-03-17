@@ -42,7 +42,7 @@ const Carousel: React.FC<CarouselProps> = ({
       animate="visible"
       variants={variants}
       style={{ transformOrigin: "top" }}
-      className="overflow-hidden border -b border-b-black"
+      className="overflow-hidden border-b border-b-black"
     >
       <div
         ref={scrollContainerRef}

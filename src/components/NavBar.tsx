@@ -24,7 +24,7 @@ const NavBar: React.FC = () => {
         {/* Hamburger icon for smaller screens */}
         <div className="sm:hidden">
           <button
-            className="flex w-full text-light pr-1 justify-end"
+            className="flex w-full text-light text-xl pr-1 justify-end"
             onClick={() => setIsOpen(!isOpen)}
           >
             MENU
