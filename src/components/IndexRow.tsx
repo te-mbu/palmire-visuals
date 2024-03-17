@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import videosData from "../../public/data/videosData";
 import Carousel from "./Carousel";
@@ -31,6 +30,20 @@ const IndexRow: React.FC<IndexRowProps> = ({
   const [selectedVideos, setSelectedVideos] = useState<Video[]>([]);
   const [selectedVideoSrc, setSelectedVideoSrc] = useState<string>("");
   const [showVideo, setShowVideo] = useState<Boolean>(false);
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
+
+  useEffect(() => {
+    const updateScreenSize = () => {
+      setIsMobileScreen(window.innerWidth < 640); // 640px peut être ajusté selon vos points de rupture CSS
+    };
+
+    window.addEventListener("resize", updateScreenSize);
+    updateScreenSize(); // Initialisez l'état selon la taille initiale de l'écran
+
+    return () => {
+      window.removeEventListener("resize", updateScreenSize);
+    };
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -40,6 +53,36 @@ const IndexRow: React.FC<IndexRowProps> = ({
       setSelectedVideos(filteredVideos);
     }
   }, [isOpen, title]);
+
+  // Effect for handling video full screen in mobile
+  useEffect(() => {
+    if (selectedVideoSrc && isMobileScreen) {
+      const videoElement = document.createElement("video");
+      videoElement.src = selectedVideoSrc;
+      videoElement.setAttribute("playsInline", "true"); // Important for iOS
+      document.body.appendChild(videoElement);
+
+      const enterFullScreen = () => {
+        if (videoElement.requestFullscreen) {
+          videoElement.requestFullscreen();
+        } else if (videoElement.webkitEnterFullscreen) {
+          videoElement.webkitEnterFullscreen(); // For iOS Safari
+        }
+        videoElement.play(); // Start the video automatically
+      };
+
+      enterFullScreen();
+
+      // Clean up: stop the video and remove it when unmounting
+      return () => {
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+        }
+        videoElement.pause();
+        document.body.removeChild(videoElement);
+      };
+    }
+  }, [selectedVideoSrc, isMobileScreen]);
 
   return (
     <>
@@ -64,7 +107,7 @@ const IndexRow: React.FC<IndexRowProps> = ({
           />
         )}
       </div>
-      {showVideo && (
+      {showVideo && !isMobileScreen && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-40">
           <div className=" bg-light">
             <button
@@ -79,6 +122,7 @@ const IndexRow: React.FC<IndexRowProps> = ({
                 src={selectedVideoSrc}
                 autoPlay
                 loop
+                playsInline // Ajout pour améliorer la compatibilité mobile
               >
                 Your browser does not support the video tag.
               </video>
