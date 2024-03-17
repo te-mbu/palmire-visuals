@@ -13,19 +13,20 @@ const Work: React.FC<WorkProps> = ({ title, thumbnail, description, src }) => {
   const [showVideo, setShowVideo] = useState(false);
 
   const handleMouseMove = (e: any) => {
-    const { width, top, height } = e.target.getBoundingClientRect();
+    const { width, top, height, bottom } = e.target.getBoundingClientRect();
 
-    const mouseY = e.clientY - height;
+    // TITLE P
+    const mouseY = e.clientY - bottom;
     const movePercentY = mouseY / height;
-    const maxMoveY = height;
     const titleP = e.target.querySelector("p.left-0");
 
     if (titleP) {
-      titleP.style.transform = `translate(${movePercentY}px, ${
-        movePercentY * maxMoveY * 0.5
-      }px)`;
+      const titleHeight = titleP.offsetHeight || 100;
+      const maxY = height / 2 - titleHeight;
+      titleP.style.transform = `translateY(${maxY * movePercentY}px)`;
     }
 
+    // DESCRIPTION P
     const newMouseY = e.clientY - top;
     const newMovePercentY = newMouseY / height;
     const descriptionP = e.target.querySelector("p.bottom-0");
@@ -44,7 +45,7 @@ const Work: React.FC<WorkProps> = ({ title, thumbnail, description, src }) => {
         onClick={() => setShowVideo(true)}
       >
         <div className="absolute w-full h-full bg-transparent z-30">
-          <p className=" absolute pl-1 left-0 top-[50%] text-xl font-bold text-yellow-300 z-40 hidden group-hover:block">
+          <p className="absolute pl-1 left-0 top-[50%] -translate-y-[50%] text-xl font-bold text-yellow-300 z-40 hidden group-hover:block">
             {title}
           </p>
           <p className="absolute left-0 bottom-0 text-sm font-semibold text-yellow-300 z-40 hidden group-hover:block">
