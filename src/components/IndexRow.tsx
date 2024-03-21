@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import videosData from "../../public/data/videosData";
+import { motion } from "framer-motion";
 import Carousel from "./Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
+// Définition des types pour les props du composant.
 interface Video {
   title: string;
   thumbnail: string;
@@ -22,30 +24,34 @@ interface IndexRowProps {
   onClick: () => void;
 }
 
+// Le composant fonctionnel IndexRow.
 const IndexRow: React.FC<IndexRowProps> = ({
   title,
   year,
   isOpen,
   onClick,
 }) => {
+  // État local pour gérer les vidéos sélectionnées.
   const [selectedVideos, setSelectedVideos] = useState<Video[]>([]);
   const [selectedVideoSrc, setSelectedVideoSrc] = useState<string>("");
   const [showVideo, setShowVideo] = useState<Boolean>(false);
   const [isMobileScreen, setIsMobileScreen] = useState(false);
 
+  // Effect pour ajuster l'état en fonction de la taille de l'écran.
   useEffect(() => {
     const updateScreenSize = () => {
-      setIsMobileScreen(window.innerWidth < 640); // 640px peut être ajusté selon vos points de rupture CSS
+      setIsMobileScreen(window.innerWidth < 640);
     };
 
     window.addEventListener("resize", updateScreenSize);
-    updateScreenSize(); // Initialisez l'état selon la taille initiale de l'écran
+    updateScreenSize();
 
     return () => {
       window.removeEventListener("resize", updateScreenSize);
     };
   }, []);
 
+  // Effect pour filtrer les vidéos en fonction du titre.
   useEffect(() => {
     if (isOpen) {
       const filteredVideos = videosData.filter(
@@ -55,26 +61,25 @@ const IndexRow: React.FC<IndexRowProps> = ({
     }
   }, [isOpen, title]);
 
-  // Effect for handling video full screen in mobile
+  // Effect pour gérer la lecture plein écran sur mobile.
   useEffect(() => {
     if (selectedVideoSrc && isMobileScreen) {
       const videoElement = document.createElement("video");
       videoElement.src = selectedVideoSrc;
-      videoElement.setAttribute("playsInline", "true"); // Important for iOS
+      videoElement.setAttribute("playsInline", "true");
       document.body.appendChild(videoElement);
 
       const enterFullScreen = () => {
         if (videoElement.requestFullscreen) {
           videoElement.requestFullscreen();
         } else if (videoElement.webkitEnterFullscreen) {
-          videoElement.webkitEnterFullscreen(); // For iOS Safari
+          videoElement.webkitEnterFullscreen();
         }
-        videoElement.play(); // Start the video automatically
+        videoElement.play();
       };
 
       enterFullScreen();
 
-      // Clean up: stop the video and remove it when unmounting
       return () => {
         if (document.fullscreenElement) {
           document.exitFullscreen();
@@ -85,6 +90,7 @@ const IndexRow: React.FC<IndexRowProps> = ({
     }
   }, [selectedVideoSrc, isMobileScreen]);
 
+  // Render du composant.
   return (
     <>
       <div className="flex flex-col gap-0 w-full">
@@ -92,18 +98,30 @@ const IndexRow: React.FC<IndexRowProps> = ({
           className={`${
             isOpen ? "border border-b border-b-light" : "border-b border-dark"
           } w-full flex justify-between bg-light py-3 pl-1 sm:py-0`}
+          onClick={onClick} // Ajouté pour permettre la manipulation de l'état isOpen de l'extérieur
         >
           <p>{title}</p>
           <div className="w-1/3 flex justify-between items-center px-1">
             <p>{year}</p>
-
-            <div className="cursor-pointer" onClick={onClick}>
-              {isOpen ? (
+            {isOpen ? (
+              <motion.div
+                key="minus"
+                initial={{ rotate: 0 }}
+                animate={{ rotate: 180 }}
+                transition={{ duration: 0.5 }}
+              >
                 <FontAwesomeIcon icon={faMinus} />
-              ) : (
+              </motion.div>
+            ) : (
+              <motion.div
+                key="plus"
+                initial={{ rotate: 180 }}
+                animate={{ rotate: 0 }}
+                transition={{ duration: 0.5 }}
+              >
                 <FontAwesomeIcon icon={faPlus} />
-              )}
-            </div>
+              </motion.div>
+            )}
           </div>
         </div>
 
@@ -124,17 +142,15 @@ const IndexRow: React.FC<IndexRowProps> = ({
             >
               Close
             </button>
-            <div className="relative w-auto sm:max-h-[90vh] sm:w-auto h-auto">
-              <video
-                className="object-contain w-auto h-[90vh] sm:h-full"
-                src={selectedVideoSrc}
-                autoPlay
-                loop
-                playsInline // Ajout pour améliorer la compatibilité mobile
-              >
-                Your browser does not support the video tag.
-              </video>
-            </div>
+            <video
+              className="object-contain w-auto h-[90vh] sm:h-full"
+              src={selectedVideoSrc}
+              autoPlay
+              loop
+              playsInline
+            >
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       )}

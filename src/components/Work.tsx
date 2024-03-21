@@ -40,15 +40,15 @@ const Work: React.FC<WorkProps> = ({ title, thumbnail, description, src }) => {
   return (
     <>
       <div
-        className="relative bg-light hover:bg-[#a3a3a3] border-2 hover:border-yellow-300 border-dark flex justify-center items-center cursor-pointer z-10 group aspect-square w-full h-full"
+        className="relative bg-light hover:bg-[#a3a3a3] border-2 hover:border-third border-dark flex justify-center items-center cursor-pointer z-10 group aspect-square w-full h-full"
         onMouseMove={handleMouseMove}
         onClick={() => setShowVideo(true)}
       >
         <div className="absolute w-full h-full bg-transparent z-30">
-          <p className="absolute pl-1 left-0 top-[50%] -translate-y-[50%] text-xl font-bold text-yellow-300 z-40 hidden group-hover:block">
+          <p className="absolute pl-1 left-0 top-[50%] -translate-y-[50%] text-xl font-bold text-third z-40 hidden group-hover:block">
             {title}
           </p>
-          <p className="absolute left-0 bottom-0 text-sm font-semibold text-yellow-300 z-40 hidden group-hover:block">
+          <p className="absolute left-0 bottom-0 text-sm font-semibold text-third z-40 hidden group-hover:block">
             &quot;{description}&quot;
           </p>
         </div>

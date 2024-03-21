@@ -10,7 +10,7 @@ const HomepageBanner: React.FC<ProfileProps> = ({ setShowProfile }) => {
       <p className="text-grey-50 font-[500] leading-tight text-vw">
         <button
           onClick={() => setShowProfile(true)}
-          className="text-light sm:hover:text-yellow-300"
+          className="text-light sm:hover:text-third"
         >
           PALMIRE MBU
         </button>
