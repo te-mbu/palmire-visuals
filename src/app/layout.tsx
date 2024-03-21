@@ -22,8 +22,10 @@ export default function RootLayout({
         <header>
           <NavBar />
         </header>
-        {children}
-        <Footer />
+        <div className="flex flex-col justify-between min-h-screen">
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
