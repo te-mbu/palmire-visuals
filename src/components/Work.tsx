@@ -40,7 +40,7 @@ const Work: React.FC<WorkProps> = ({ title, thumbnail, description, src }) => {
   return (
     <>
       <div
-        className="relative bg-light hover:bg-[#a3a3a3] border-2 hover:border-yellow-300 border-dark h-96 flex justify-center items-center cursor-pointer z-10 group"
+        className="relative bg-light hover:bg-[#a3a3a3] border-2 hover:border-yellow-300 border-dark flex justify-center items-center cursor-pointer z-10 group aspect-square w-full h-full"
         onMouseMove={handleMouseMove}
         onClick={() => setShowVideo(true)}
       >

@@ -54,13 +54,6 @@ const NavBar: React.FC = () => {
               setIsOpen={setIsOpen}
               setShowProfile={setShowProfile}
             />
-            <NavLinkButton
-              href="/contact"
-              label="Contact"
-              isHidden={false}
-              setIsOpen={setIsOpen}
-              setShowProfile={setShowProfile}
-            />
           </ul>
         </nav>
       </div>
