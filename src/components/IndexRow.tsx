@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import videosData from "../../public/data/videosData";
 import Carousel from "./Carousel";
-import PlusMinusButton from "./PlusMinusButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 interface Video {
   title: string;
@@ -95,7 +96,14 @@ const IndexRow: React.FC<IndexRowProps> = ({
           <p>{title}</p>
           <div className="w-1/3 flex justify-between items-center px-1">
             <p>{year}</p>
-            <PlusMinusButton isOpen={isOpen} onClick={onClick} />
+
+            <div className="cursor-pointer" onClick={onClick}>
+              {isOpen ? (
+                <FontAwesomeIcon icon={faMinus} />
+              ) : (
+                <FontAwesomeIcon icon={faPlus} />
+              )}
+            </div>
           </div>
         </div>
 
